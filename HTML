@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+     
+        // Set chart options
+        var options = {'title':'Proving Gravity to be -9.81m/s/s',
+                       'width':400,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+    ['Time', 'Velocity'],
+    [.0167,-.87],[.0333,-.99],[.05,-1.17],[.0667,-1.35],[.0833,-1.53],[.1,-1.68],[.1167,-1.83],[.1333,-1.98],[.15,-2.13],[.1667,-2.31],[.1833,-2.49],[.2,-2.67],[.2167,-2.85],[.2333,-3],[.25,-3.09],[.2667,-3.27],[.2833,-3.48],[.3,-3.63],[.3167,-3.81],[.3333,-3.99],[.35,-4.11],[.3667,-4.23],[.3833,-4.44],[.4,-4.65],[.4167,-4.77],[.4333,-4.99],[.45,-5.13],[.4667,-5.22]]);
+
+  var options = {
+    title: 'Free Fall',
+    hAxis: {title: 'Time (s)'},
+    vAxis: {title: 'Velocity (M/s)'},
+    legend: 'none',
+    trendlines: { 0: {
+          opacity: 0.2,} }    // Draw a trendline for data series 0.
+  };
+
+  var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+  chart.draw(data, options);
+}
+    </script>
+
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+	R^2=.99 <br>
+	Y=-9.79x-.68
+  </body>
+</html>
